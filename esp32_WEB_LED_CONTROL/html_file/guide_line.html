@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>guide line</title>
+    <style>
+        body{
+            background: #34495e;
+            background-attachment:unset;
+        }
+        .mes{
+            text-align: center;
+            color: #2ecc71;
+            font-size: 60px;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        .box{
+            width: 300px;
+            height: 400px;
+            padding: 40px;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            background: #191919;
+            text-align: center;
+            border-radius: 10px;
+            transform: translatex(-50%);
+        }
+        .box input[type="submit"]{
+            border: solid 3px #2ecc71;
+            border-radius: 40px;
+            background: none;
+            color: whitesmoke;
+            outline: none;
+            transition: 0.25s;
+            display: block;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 35px;
+            font-family: sans-serif;
+            font-weight: 700;
+            width: 200px;
+            height: 80px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .box input[type="submit"]:hover{
+            background: #2ecc71;
+        }
+        .box input[type="submit"]:active{
+            width:190px;
+            height: 70px;
+        }
+        input {
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="mes">
+        <p>Welcome!</p>
+    </div>
+    <div class="box">
+        <form method="GET" action="/LEDON" >
+            <input class="but" type="submit" value="LED ON">
+        </form>
+        <form method="GET" action="/LEDOFF" >
+            <input class="but" type="submit" value="LED OFF" onClick="location.href='/LEDOFF'">
+        </form>
+        <form method="GET" action="/LEDBLINK" >
+            <input class="but" type="submit" value="LED BLINK" onClick="location.href='/LEDBLINK'">
+        </form>        
+    </div>
+</body>
+</html>
