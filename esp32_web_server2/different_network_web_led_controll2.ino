@@ -64,7 +64,7 @@ void setup() {
   server.on("/LEDON", LedOn);  // IP주소/LEDON 으로 접속하였을 시 LedOn()함수가 동작함
   server.on("/LEDOFF", LedOff);   // IP주소/LEDOFF 으로 접속하였을 시 LedOff()함수가 동작함
 
-  server.begin();  // 서버 사용을 시작하는 함수로, 아까 설정한 포트(80)로 서버에서 통신이 들어오게 대기를 시작한다.
+  server.begin();  // 서버 사용을 시작하는 함수로, 아까 설정한 포트(81)로 서버에서 통신이 들어오게 대기를 시작한다.
   Serial.println("Server Start!");
 }
 
