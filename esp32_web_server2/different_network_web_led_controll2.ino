@@ -47,8 +47,8 @@ void setup() {
   Serial.begin(115200);
   WiFi.mode(WIFI_STA);  //esp32를 WIFI_STA모드로 동작시킨다
 /////////////////고정IP로 할당/////////////////////
-  IPAddress ip(192, 168, 219, 105);   // 고정 ip로 사용할 ip 주소
-  IPAddress gateway(192, 168, 219, 1);  //라우터 고유 기본 IP
+  IPAddress ip(, , , );   // 고정 ip로 사용할 ip 주소
+  IPAddress gateway(, , , );  //라우터 고유 기본 IP
   IPAddress subnet(255, 255, 255, 0);  //서브넷 마스크
   WiFi.config(ip, gateway, subnet);   //설정한 값들을 esp32에 할당함
 ////////////////////////////////////////////////
