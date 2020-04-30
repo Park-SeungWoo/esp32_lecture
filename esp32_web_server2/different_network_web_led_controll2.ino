@@ -66,7 +66,7 @@ void setup() {
   Serial.print("IP : ");
   Serial.println(WiFi.localIP());
 
-  server.on("/", Main_P);  // IP주소로 접속하였을 시 Main()함수가 동작함
+  server.on("/", Main_P);  // IP주소로 접속하였을 시 Main_P()함수가 동작함
   server.on("/LEDON", LedOn);  // IP주소/LEDON 으로 접속하였을 시 LedOn()함수가 동작함
   server.on("/LEDOFF", LedOff);   // IP주소/LEDOFF 으로 접속하였을 시 LedOff()함수가 동작함
 
