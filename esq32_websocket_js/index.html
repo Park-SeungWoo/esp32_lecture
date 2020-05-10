@@ -53,8 +53,19 @@
         var wsUri = "ws://192.168.219.105:81/";
         function init() {
             websocket = new WebSocket(wsUri);
+            websocket.onopen = function(evt) { onOpen(evt) };
+            websocket.onclose = function(evt) { onClose(evt) };
             websocket.onmessage = function(evt) { onMessage(evt) };
-        };
+            websocket.onerror = function(evt) { onError(evt) };
+        }
+        
+        function onOpen(evt) {
+            alert('connected');
+        }
+        
+        function onClose(evt) {
+            alert('disconnected');
+        }
         
         function onMessage(evt) {
             if (evt.data == "1") {
@@ -63,7 +74,12 @@
             else if (evt.data == "0") {
                 document.getElementById('buttonstate').innerHTML = "<div id='butoff'></div>";
             }
-        };
+        }
+        
+        function onError(evt) {
+            alert('error');
+        }
+        
         window.addEventListener("load", init, false);
     </script>
 </head>
