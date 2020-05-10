@@ -51,19 +51,14 @@
     </style>
     <script>
         var ws_ip = "ws://192.168.219.105:81/";
-        function init() {
-            websocket = new WebSocket(ws_ip);
-            websocket.onMessage = function(evt) {onMessage(evt)};
-        }
-        function onMessage(evt) {
+        websocket = new WebSocket(ws_ip);
+        websocket.onMessage = function(evt) {
             if (evt.data == "1") {
                 document.getElementById('buttonstate').innerHTML = "<div id='buton'></div>";
             }
             else if (evt.data == "0") {
                 document.getElementById('buttonstate').innerHTML = "<div id='butoff'></div>";
-            }
-        }
-        window.addEventListener("load", init, false);
+            }};
     </script>
 </head>
 <body>
