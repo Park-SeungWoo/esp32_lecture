@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <style>
+        body {
+            background: #34495e;
+            background-attachment:unset;
+        }
+        .mes {
+            text-align: center;
+            color: #2ecc71;
+            font-size: 60px;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        .box {
+            width: 300px;
+            height: 300px;
+            padding: 40px;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            background: #191919;
+            text-align: center;
+            border-radius: 10px;
+            transform: translatex(-50%);
+        }
+        .buton {
+            border: 3px solid #191919;
+            border-radius: 40px;
+            background: #2ecc71;
+            width: 80px;
+            height: 80px;
+            position: relative;
+            left: 50%;
+            transform: translatex(-50%);
+            margin-bottom: 50px;
+            }
+        .butoff {
+            border: 3px solid #191919;
+            border-radius: 40px;
+            background: #34495e;
+            width: 80px;
+            height: 80px;
+            position: relative;
+            left: 50%;
+            transform: translatex(-50%);
+            margin-bottom: 50px;
+        }
+    </style>
+    <script>
+        let ws_ip = "ws://192.168.219.105/";
+        function init() {
+            websocket = new WebSocket(ws_ip);
+            websocket.onMessage = function(evt) {onMessage(evt)};
+        }
+        function onMessage(evt) {
+            if (evt.data == "1") {
+                document.getElementById('buttonstate').innerHTML = "<div id='buton'></div>";
+            }
+            else if (evt.data == "0") {
+                document.getElementById('buttonstate').innerHTML = "<div id='butoff'></div>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="mes">
+        <p>Button State</p>
+    </div>
+    <div class="box">
+        <div class="buttonstate">
+        </div>
+    </div>
+</body>
+</html>
