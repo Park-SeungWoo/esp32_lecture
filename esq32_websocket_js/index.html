@@ -50,7 +50,7 @@
         }
     </style>
     <script>
-        let ws_ip = "ws://192.168.219.105:81/";
+        let ws_ip = "ws://192.168.219.105:8080/";
         function init() {
             websocket = new WebSocket(ws_ip);
             websocket.onMessage = function(evt) {onMessage(evt)};
