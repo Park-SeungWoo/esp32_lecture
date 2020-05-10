@@ -50,11 +50,11 @@
         }
     </style>
     <script>
-        var wsUri = "ws://192.168.219.105/";
+        var wsUri = "ws://192.168.219.105:81/";
         function init() {
-            wsocket = new WebSocket(wsUri);
-            wsocket.onmessage = function(evt) {onMessage(evt)};
-        }
+            websocket = new WebSocket(wsUri);
+            websocket.onmessage = function(evt) { onMessage(evt) };
+        };
         
         function onMessage(evt) {
             if (evt.data == "1") {
