@@ -7,8 +7,8 @@
 #define dhttype DHT11  //DHT11을 사용하기위해 dhttype상수에 DHT11이라는 값을 미리 담아둠 
 #define led 2  // 와이파이에 연결하게되면 표시를 하기위해 사용함 
 
-const char* ssid = "U+NetB495";
-const char* pw = "1C1A027155";
+const char* ssid = "";
+const char* pw = "";
 static int cliip = 0;  //client ip를 담을 전역변수를 선언하여 코드의 어느 위치에서든 client로 값을 보낼 수 있도록함 
 
 AsyncWebServer server(80);  //비동기식 웹서버를 생성해 80번 포트로 통신함 
@@ -140,9 +140,9 @@ void setup() {
   dht.begin();  // DHT센서의 센싱을 시작함 
   WiFi.mode(WIFI_STA);
   //////////////고정 Ip할당///////////////
-  IPAddress ip(192, 168, 219, 105);
-  IPAddress gateway(192, 268, 219, 1);
-  IPAddress subnet(255, 255, 255, 0);
+  IPAddress ip(, , , );
+  IPAddress gateway(, , , );
+  IPAddress subnet(, , , );
   WiFi.config(ip, gateway, subnet);
   ////////////////////////////////
   WiFi.begin(ssid, pw);
