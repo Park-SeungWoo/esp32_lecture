@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DHT SENSOR</title>
+    <style>
+        body {
+            background: #34495e;
+        }
+
+        .mes {
+            text-align: center;
+            color: #2ecc71;
+            font-size: 60px;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        .box {
+            width: 400px;
+            height: 200px;
+            padding: 40px;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            background: #191919;
+            text-align: center;
+            border-radius: 10px;
+            transform: translatex(-50%);
+        }
+
+        #temperature {
+            position: relative;
+            margin-top: 50px;
+            line-height: 50px;
+            color: #b4e4c8;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        #humidity {
+            position: relative;
+            line-height: 50px;
+            color: #b4e4c8;
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="mes">
+        <p>DHT Values</p>
+    </div>
+    <div class="box">
+        <div id='temperature'></div>
+        <div id='humidity'></div>
+    </div>
+    <script>
+        let wsip = "ws://192.168.219.105:81/";
+        function init() {
+            websocket = new WebSocket(wsip);
+            websocket.onopen = function(evt) {onOpen(evt)};
+            websocket.onclose = function(evt) {onClose(evt)};
+            websocket.onmessage = function(evt) {onMessage(evt)};
+            websocket.onerror = function(evt) {onError(evt)};
+        }
+        function onOpen(evt) {
+            alert('Connected');
+        }
+        function onClose(evt) {
+            alert('Disconnected');
+        }
+        function onError(evt) {
+            alert('Error');
+        }
+        function onMessage(evt) {
+            let Data = evt.data.split('_');
+            if (Data[0] == 't') {
+                document.getElementById('temperature').innerHTML = "Temperature : " + Data[1] + " &deg;C";
+            }
+            else if (Data[0] == 'h') {
+                document.getElementById('humidity').innerHTML = "Humidity : " + Data[1] + " %";
+            }
+        }
+        window.addEventListener("load", init, false);
+    </script>
+</body>
+</html>
