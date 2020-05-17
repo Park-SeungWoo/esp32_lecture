@@ -22,23 +22,24 @@ const char index_html[] PROGMEM = R"rawliteral(
     <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.7">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>DHT SENSOR</title>
         <style>
             body {
                 background: #34495e;
             }
-    
+
             .mes {
                 text-align: center;
                 color: #2ecc71;
                 font-size: 60px;
                 font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             }
-    
+
             .box {
-                width: 400px;
+                width: 500px;
                 height: 200px;
-                padding: 40px;
                 position: relative;
                 top: 50%;
                 left: 50%;
@@ -47,19 +48,27 @@ const char index_html[] PROGMEM = R"rawliteral(
                 border-radius: 10px;
                 transform: translatex(-50%);
             }
-    
+
+            .centerbox {
+                position: relative;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
             #temperature {
                 position: relative;
-                margin-top: 50px;
                 line-height: 50px;
+                text-align: center;
                 color: #b4e4c8;
                 font-size: 30px;
                 font-weight: bold;
             }
-    
+
             #humidity {
                 position: relative;
                 line-height: 50px;
+                text-align: center;
                 color: #b4e4c8;
                 font-size: 30px;
                 font-weight: bold;
@@ -71,8 +80,10 @@ const char index_html[] PROGMEM = R"rawliteral(
             <p>DHT Values</p>
         </div>
         <div class="box">
-            <div id='temperature'></div>
-            <div id='humidity'></div>
+            <div class="centerbox">
+                <div id='temperature'></div>
+                <div id='humidity'></div>
+            </div>
         </div>
         <script>
             let wsip = "ws://192.168.219.105:81/";
@@ -95,10 +106,10 @@ const char index_html[] PROGMEM = R"rawliteral(
             function onMessage(evt) {
                 let Data = evt.data.split('_');
                 if (Data[0] == 't') {
-                    document.getElementById('temperature').innerHTML = "Temperature : " + Data[1] + " &deg;C";
+                    document.getElementById('temperature').innerHTML = "<i class=\"fa fa-thermometer-2\" style=\"font-size:48px;color:skyblue\"></i>" + " Temperature : " + Data[1] + " &deg;C";
                 }
                 else if (Data[0] == 'h') {
-                    document.getElementById('humidity').innerHTML = "Humidity : " + Data[1] + " %";
+                    document.getElementById('humidity').innerHTML = "<i class=\"fa fa-tint\" style=\"font-size:48px;color:skyblue\"></i>" + " Humidity : " + Data[1] + " %";
                 }
             }
             window.addEventListener("load", init, false);
