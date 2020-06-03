@@ -6,8 +6,8 @@
 #define dhtpin 22  // dht11 sensor를 22번 핀에서 사용
 #define dhttype DHT11  // dht의 타입을 지정
 
-const char* ssid = "SK_WiFiGIGA58E3";
-const char* pw = "1702099900";
+const char* ssid = "";
+const char* pw = "";
 const char* MQTT_B_IP = "broker.mqtt-dashboard.com";  // 브로커의 ip를 담아 브로커와 통신하기 위함
 
 float tem;  // 온도 값을 담을 변수 선언
