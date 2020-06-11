@@ -56,10 +56,6 @@ void reconnect() {
   }
 }
 
-void callback(char* topic, byte* message, unsigned int l) {
-  Serial.println("callback");
-}
-
 void SaveValToJson_send() {
   root["Temperature"] = tem;
   root["Humidity"] = humid;
@@ -99,7 +95,6 @@ void setup() {
   dht.begin();
   WiFiConnect();
   Client.setServer(MQTT_B_IP, 1883);
-  Client.setCallback(callback);
 }
 
 void loop() {
