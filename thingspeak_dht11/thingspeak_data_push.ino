@@ -6,10 +6,10 @@
 #define dhtpin 22  // dht11을 22번 핀에서 사용
 #define dhttype DHT11  // dht11를 이용하기 위해 type을 DHT11로 지정해둠
 
-const char* ssid = "U+NetB495";
-const char* pw = "1C1A027155";
-unsigned long chID = 1071436;
-const char* WKey = "DJO95TTVZ8GKD9PY";
+const char* ssid = "ssid";
+const char* pw = "pw";
+unsigned long chID = 0;
+const char* WKey = "key";
 
 float tem = 0.0;  // 온도값을 담을 변수 미리 선언
 float humid = 0.0;  // 습도값을 담을 변수 미리 선언
